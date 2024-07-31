@@ -2,13 +2,14 @@ package Actions;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import Gierka.Gra;
+import Gierka.Panel;
+import Gierka.Plane;
 
 public class UpAction extends AbstractAction {
     public UpAction(){}
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Gra.getPlane().setLocation(Gra.getPlane().getLocation().x, Gra.getPlane().getLocation().y - 10);
+        Panel.getPlane().setLocation(Panel.getPlane().getLocation().x, Panel.getPlane().getLocation().y - Plane.getVelocity());
     }
 }

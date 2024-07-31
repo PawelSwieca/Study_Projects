@@ -9,6 +9,13 @@ import java.awt.*;
 public class Plane extends JLabel {
     Action leftAction, rightAction, upAction, downAction;
     ImageIcon rocket;
+    static int Velocity = 5;
+
+
+    public static int getVelocity() {
+        return Velocity;
+    }
+
 
     public Plane() {
         setSize(100, 200);

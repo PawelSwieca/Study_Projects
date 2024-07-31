@@ -5,16 +5,20 @@ import java.awt.*;
 import Actions.*;
 
 public class Gra extends JFrame{
-    Action leftAction, rightAction, upAction, downAction;
-    ImageIcon rocket, alien;
-
-    public static Plane getPlane() {
-        return plane;
-    }
-
-    static Plane plane;
-    //static JLabel plane;
-    JLabel enemy;
+//    static Plane plane;
+//    static Enemy enemy;
+//    static int bounds_frame = 10;
+//
+//    public static Plane getPlane() {
+//        return plane;
+//    }
+//    public static Enemy getEnemy() {
+//        return enemy;
+//    }
+//    public static int getBounds_frame() {
+//        return bounds_frame;
+//    }
+    Panel panel;
     public Gra() {
         setTitle("Gra");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -22,26 +26,19 @@ public class Gra extends JFrame{
         setLocationRelativeTo(null);
         setLayout(null);
         setResizable(false);
-        getContentPane().setBackground(new Color(50, 50, 50));
-        resizeImages();
+        //getContentPane().setBackground(new Color(50, 50, 50));
 
-        enemy = new JLabel();
-        enemy.setSize(90, 90);
-        enemy.setIcon(alien);
-        enemy.setBounds(0, 0, 90, 90);
-
-        plane = new Plane();
-        plane.setBounds(400, 200, 100, 200);
-
-
-        add(plane);
-        add(enemy);
-
+//        enemy = new Enemy();
+//        enemy.setBounds(0, 0, 90, 90);
+//
+//        plane = new Plane();
+//        plane.setBounds(400, 200, 100, 200);
+//
+//
+//        add(plane);
+//        add(enemy);
+        panel = new Panel();
+        add(panel);
         setVisible(true);
-    }
-
-    private void resizeImages(){
-        alien = new ImageIcon(new ImageIcon("C:\\Users\\Admin\\Java - nauka\\Gierka na zakonczenie\\src\\Grafiki\\enemy.png").getImage().getScaledInstance(90, 90, Image.SCALE_DEFAULT));
-        rocket = new ImageIcon(new ImageIcon("C:\\Users\\Admin\\Java - nauka\\Gierka na zakonczenie\\src\\Grafiki\\rocket.png").getImage().getScaledInstance(100, 200, Image.SCALE_DEFAULT));
     }
 }
