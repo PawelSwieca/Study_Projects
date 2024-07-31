@@ -7,10 +7,10 @@ import Actions.*;
 import java.awt.*;
 
 public class Plane extends JLabel {
-    Action leftAction, rightAction, upAction, downAction;
+    Action leftAction, rightAction, upAction, downAction, spaceAction;
     ImageIcon rocket;
     static int Velocity = 5;
-
+    static int width, height;
 
     public static int getVelocity() {
         return Velocity;
@@ -19,6 +19,8 @@ public class Plane extends JLabel {
 
     public Plane() {
         setSize(100, 200);
+        width = getWidth();
+        height = getHeight();
         resizeImages();
         setIcon(rocket);
         setActions();
@@ -34,16 +36,22 @@ public class Plane extends JLabel {
         rightAction = new RightAction();
         upAction = new UpAction();
         downAction = new DownAction();
+        spaceAction = new SpaceAction();
 
 
         getInputMap().put(KeyStroke.getKeyStroke("UP"), "up");
         getActionMap().put("up", upAction);
+
         getInputMap().put(KeyStroke.getKeyStroke("DOWN"), "down");
         getActionMap().put("down", downAction);
+
         getInputMap().put(KeyStroke.getKeyStroke("LEFT"), "left");
         getActionMap().put("left", leftAction);
+
         getInputMap().put(KeyStroke.getKeyStroke("RIGHT"), "right");
         getActionMap().put("right", rightAction);
 
+        getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "space");
+        getActionMap().put("space", spaceAction);
     }
 }

@@ -13,7 +13,7 @@ public class Menu extends JFrame implements ActionListener {
     JButton play, exit;
     JLabel label;
     GraphicsEnvironment ge;
-    Font font;
+    //Font font;
 
     public Menu() throws IOException, FontFormatException {
         setTitle("SPACE WARS!");

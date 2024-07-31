@@ -1,5 +1,7 @@
 package Gierka;
 
+import Actions.SpaceAction;
+
 import javax.swing.*;
 
 import java.awt.*;
@@ -8,6 +10,7 @@ import java.awt.event.ActionListener;
 
 public class Panel extends JPanel implements ActionListener {
     Timer timer;
+    Laser laser;
     static Plane plane;
     static Enemy enemy;
     static int bounds_frame = 10;
@@ -35,6 +38,7 @@ public class Panel extends JPanel implements ActionListener {
 
         timer = new Timer(10, this);
         timer.start();
+
 
         add(plane);
         add(enemy);

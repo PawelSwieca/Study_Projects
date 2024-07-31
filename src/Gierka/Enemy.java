@@ -19,7 +19,6 @@ public class Enemy extends JLabel{
     public int getVelocity() {
         return Velocity;
     }
-
     public int getX_position() {
         return x_position;
     }
