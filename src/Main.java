@@ -5,9 +5,15 @@ import java.awt.*;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException, FontFormatException {
-        //Menu menu = new Menu();
-        Gra test = new Gra();
+    public static void main(String[] args){
+        try {
+            Menu menu = new Menu();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (FontFormatException e) {
+            throw new RuntimeException(e);
+        }
+        //Gra test = new Gra();
 
     }
 }

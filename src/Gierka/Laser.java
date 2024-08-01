@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Laser extends JLabel implements ActionListener{
+    static Rectangle hitlaser;
     int width = 10, height = 10;
     Timer timer;
     boolean move_up = false;
@@ -14,6 +15,8 @@ public class Laser extends JLabel implements ActionListener{
         setBackground(Color.CYAN);
         setVisible(true);
         setOpaque(true);
+
+        hitlaser = this.getBounds();
 
         timer = new Timer(10, this);
         timer.start();
@@ -28,11 +31,17 @@ public class Laser extends JLabel implements ActionListener{
         }
         if(move_up){
             setLocation(getLocation().x,getLocation().y - 5);
+            hitlaser.setLocation(getLocation().x,getLocation().y - 5);
         }
         if (!move_up){
             timer.stop();
             setLocation(700, 700);
+            hitlaser.setLocation(700, 700);
             setVisible(false);
+        }
+        if(Enemy.hitbox.intersects(hitlaser)){
+            Enemy.live_points --;
+            System.out.println("Hited");
         }
     }
 }

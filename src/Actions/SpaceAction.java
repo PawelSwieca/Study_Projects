@@ -15,8 +15,7 @@ public class SpaceAction extends AbstractAction {
         Laser laser = new Laser();
         laser.setBounds((Panel.getPlane().getX() + 50), (Panel.getPlane().getY() + 150), 5, 20);
         Gra.getPanel().add(laser);
-        if(laser.getY() + 10 < Panel.getBounds_frame() + 10){
-            laser = null;
-        }
+        //Panel.setLaser(laser);
+
     }
 }
