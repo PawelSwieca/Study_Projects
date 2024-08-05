@@ -13,5 +13,6 @@ public class ProgresBar extends JProgressBar {
         setMaximum(Enemy.getLive_points());
         setOpaque(true);
         setValue(Enemy.getLive_points());
+
     }
 }

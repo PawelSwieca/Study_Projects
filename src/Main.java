@@ -1,4 +1,4 @@
-import Gierka.*;
+
 import Gierka.Menu;
 
 import java.awt.*;
@@ -8,9 +8,7 @@ public class Main {
     public static void main(String[] args){
         try {
             Menu menu = new Menu();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (FontFormatException e) {
+        } catch (IOException | FontFormatException e) {
             throw new RuntimeException(e);
         }
 

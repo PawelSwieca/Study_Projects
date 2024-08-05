@@ -28,7 +28,7 @@ public class Plane extends JLabel {
     }
 
     private void resizeImages() {
-        rocket = new ImageIcon(new ImageIcon("C:\\Users\\Admin\\Java - nauka\\Gierka na zakonczenie\\src\\Grafiki\\rocket.png").getImage().getScaledInstance(100, 200, Image.SCALE_DEFAULT));
+        rocket = new ImageIcon(new ImageIcon("C:\\Users\\Admin\\Java - nauka\\Gierka na zakonczenie\\src\\Assets\\rocket.png").getImage().getScaledInstance(100, 200, Image.SCALE_DEFAULT));
     }
 
     private void setActions() {

@@ -25,7 +25,7 @@ public class Menu extends JFrame implements ActionListener {
         label.setForeground(new Color(20, 255, 0));
         label.setBorder(new EmptyBorder(50, 100, 70, 100));
         ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("C:\\Users\\Admin\\Java - nauka\\Gierka na zakonczenie\\src\\Grafiki\\joystix monospace.otf")));
+        ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("C:\\Users\\Admin\\Java - nauka\\Gierka na zakonczenie\\src\\Assets\\joystix monospace.otf")));
         label.setFont(new Font("joystix monospace", Font.PLAIN, 70));
 
         play = new JButton("Start game");

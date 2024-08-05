@@ -23,7 +23,7 @@ public class Enemy extends JLabel implements ActionListener {
     }
 
     private void resizeImages() {
-        alien = new ImageIcon(new ImageIcon("C:\\Users\\Admin\\Java - nauka\\Gierka na zakonczenie\\src\\Grafiki\\enemy.png").getImage().getScaledInstance(90, 90, Image.SCALE_DEFAULT));
+        alien = new ImageIcon(new ImageIcon("C:\\Users\\Admin\\Java - nauka\\Gierka na zakonczenie\\src\\Assets\\enemy.png").getImage().getScaledInstance(90, 90, Image.SCALE_DEFAULT));
     }
 
     public static int getLive_points() {
