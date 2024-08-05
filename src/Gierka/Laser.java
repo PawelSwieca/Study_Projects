@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class Laser extends JLabel implements ActionListener{
     static Rectangle hitlaser;
-    int width = 10, height = 10;
+    int width = 10, height = 10, time = 10;
     Timer timer;
     boolean move_up = false;
     public Laser() {
@@ -38,10 +38,21 @@ public class Laser extends JLabel implements ActionListener{
             setLocation(700, 700);
             hitlaser.setLocation(700, 700);
             setVisible(false);
+            Gra.getPanel().remove(this);
+
         }
         if(Enemy.hitbox.intersects(hitlaser)){
+            timer.stop();
             Enemy.live_points --;
+            Panel.progressBar.setValue(Enemy.live_points);
             System.out.println("Hited");
+            setLocation(700, 700);
+            hitlaser.setLocation(700, 700);
+            setVisible(false);
+            Gra.getPanel().remove(this);
         }
     }
+//    public void paint(Graphics g){
+//        dispose();
+//    }
 }

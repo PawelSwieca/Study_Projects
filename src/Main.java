@@ -13,7 +13,6 @@ public class Main {
         } catch (FontFormatException e) {
             throw new RuntimeException(e);
         }
-        //Gra test = new Gra();
 
     }
 }
