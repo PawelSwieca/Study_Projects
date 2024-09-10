@@ -3,6 +3,8 @@ package com.example.odtwarzacz;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -63,7 +65,7 @@ public class HelloController implements Initializable {
 
         TreeItem<String> root = new TreeItem<>("Music");
         selection.setRoot(root);
-        for(File file : songs) {
+        for (File file : songs) {
             root.getChildren().add(new TreeItem<>(file.getName()));
         }
         play.setDisable(true);
@@ -77,16 +79,28 @@ public class HelloController implements Initializable {
 
         beginTimer();
         mediaPlayer.play();
+
+        play.setText("Stop");
+        play.setOnAction(e -> stopmedia());
+    }
+
+    public void stopmedia() {
+        mediaPlayer.pause();
+        timer.cancel();
+        timer.purge();
+
+        play.setText("Play");
+        play.setOnAction(e -> playmedia());
     }
 
     public void downmedia() {
         mediaPlayer.seek(Duration.seconds(mediaPlayer.getCurrentTime().toSeconds() - 10));
         double time = mediaPlayer.getCurrentTime().toSeconds() - 10;
         mediaPlayer.seek(Duration.seconds(time));
-        if(time-end == 0){
+        if (time - end == 0) {
             progress.setProgress(0);
             beginTimer();
-            progress.setProgress(end-10);
+            progress.setProgress(end - 10);
             mediaPlayer.seek(Duration.seconds(end - 10));
         }
         System.out.println("Current time: " + mediaPlayer.getCurrentTime().toSeconds());
@@ -95,14 +109,15 @@ public class HelloController implements Initializable {
     public void upmedia() {
         mediaPlayer.seek(Duration.seconds(mediaPlayer.getCurrentTime().toSeconds() + 10));
         double time = mediaPlayer.getCurrentTime().toSeconds() + 10;
-        if(time/end == 1) {
+        if (time / end == 1) {
             //up.setDisable(true);
             endTimer();
         }
-        progress.setProgress(time/end);
+        progress.setProgress(time / end);
         System.out.println("Current time: " + mediaPlayer.getCurrentTime().toSeconds());
     }
-    public void beginTimer(){
+
+    public void beginTimer() {
         timer = new java.util.Timer();
         TimerTask timerTask = new TimerTask() {
             public void run() {
@@ -119,7 +134,8 @@ public class HelloController implements Initializable {
         timer.scheduleAtFixedRate(timerTask, 1000, 1000);
 
     }
-    public void endTimer(){
+
+    public void endTimer() {
         progress.setProgress(0);
 
         mediaPlayer.seek(Duration.seconds(0));
@@ -130,17 +146,19 @@ public class HelloController implements Initializable {
         up.setDisable(true);
         down.setDisable(true);
     }
-    public void choose_music(){
+
+    public void choose_music() {
         selection.setVisible(true);
     }
-    public void get_music(){
-        if(timer!=null){
+
+    public void get_music() {
+        if (timer != null) {
             endTimer();
         }
-        if(selection.getSelectionModel().getSelectedItem() != null){
+        if (selection.getSelectionModel().getSelectedItem() != null) {
             TreeItem<String> item = selection.getSelectionModel().getSelectedItem();
-            if(!item.getValue().equals("Music")){
-                File file = new File("music\\"+item.getValue());
+            if (!item.getValue().equals("Music")) {
+                File file = new File("music\\" + item.getValue());
                 media = new Media(file.toURI().toString());
                 mediaPlayer = new MediaPlayer(media);
                 title.setText(item.getValue());
