@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="plane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="450.0" stylesheets="@Scene.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.odtwarzacz.HelloController">
+   <children>
+      <ProgressBar fx:id="progress" layoutY="143.0" prefHeight="18.0" prefWidth="450.0" progress="0.0" />
+      <Label fx:id="title" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="18.0" prefWidth="450.0" text="Tytuł" textFill="#faf7f7">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ButtonBar fx:id="button_bar" buttonOrder="U+FBXI_YNOCAH_R" cache="true" layoutY="173.0" prefHeight="40.0" prefWidth="450.0">
+        <buttons>
+            <Button fx:id="down" mnemonicParsing="false" onAction="#downmedia" text="-10s" />
+            <Button fx:id="play" mnemonicParsing="false" onAction="#playmedia" text="Play" />
+          <Button fx:id="up" mnemonicParsing="false" onAction="#upmedia" text="+10s" />
+        </buttons>
+      </ButtonBar>
+      <Slider fx:id="volume" layoutX="156.0" layoutY="213.0" value="50.0" />
+      <Button fx:id="set" layoutX="210.0" layoutY="99.0" mnemonicParsing="false" onAction="#choose_music" text="Set" />
+      <TreeView fx:id="selection" layoutX="126.0" layoutY="25.0" onContextMenuRequested="#get_music" onMouseClicked="#get_music" prefHeight="200.0" prefWidth="200.0" visible="false" />
+   </children>
+</AnchorPane>
