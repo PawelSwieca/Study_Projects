@@ -83,7 +83,7 @@ vector<double> gauss_wybor_czesciowy(vector<vector<double>> A, vector<double> b)
         swap(b[k], b[max_row]);
 
         if (abs(A[k][k]) < exp(-9)) {
-            cerr << "Blad: dzielenie przez zero (element jest zbyt maly).\n";
+            cerr << "Blad: element na przekatnej glownej jest rowny zero (element jest zbyt maly).\n";
             exit(1);
         }
 
@@ -128,7 +128,7 @@ vector<double> gauss_wybor_pelny(vector<vector<double>> A, vector<double> b) {
         swap(zamiany[k], zamiany[max_col]);
 
         if (abs(A[k][k]) < exp(-9)) {
-            cerr << "Blad: dzielenie przez zero (element jest zbyt maly).\n";
+            cerr << "Blad: element na przekatnej glownej jest rowny zero (element jest zbyt maly).\n";
             exit(1);
         }
 
@@ -161,6 +161,10 @@ void pobiez_dane(vector<vector<double>> &A, vector<double> &b) {
     int n;
     cout << "Podaj liczbe rownan (i niewiadomych): ";
     cin >> n;
+    if(n<=0){
+        cout<<"Liczba elementow musi byc wieksza od 0!\n";
+        exit(1);
+    }
     A.resize(n, vector<double>(n));
     b.resize(n);
 
@@ -172,7 +176,7 @@ void pobiez_dane(vector<vector<double>> &A, vector<double> &b) {
         }
     }
 
-    cout << "Podaj wektor wyrazow wolnych:\n";
+    cout << "Podaj wektor wyrazow wolnych (liczby oddzielaj spacja):\n";
     for (int i = 0; i < n; ++i) {
         cin >> b[i];
     }
