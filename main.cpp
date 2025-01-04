@@ -35,7 +35,7 @@ vector<double> postepowanie_odwrotne(int n, vector<vector<double>> A, vector<dou
 // Funkcja wypisująca wektor rozwiązania
 void rozwiazania(const vector<double> &x) {
     cout << "\nRozwiazanie ukladu rownan:\n";
-    for (size_t i = 0; i < x.size(); ++i) {
+    for (int i = 0; i < x.size(); ++i) {
         cout << "x" << i + 1 << " = "<< setw(7) << fixed << setprecision(4) << x[i] << endl;
     }
 }
