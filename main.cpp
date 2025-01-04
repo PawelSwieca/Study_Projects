@@ -9,7 +9,7 @@ using namespace std;
 
 // Funkcja wypisująca macierz A oraz wektor b
 void wyswietl_tablice(const vector<vector<double>> &A, const vector<double> &b) {
-    int n = A.size();
+    int n = (int)A.size();
     cout << "\nAktualny stan macierzy A i wektora b:\n";
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
@@ -42,7 +42,7 @@ void rozwiazania(const vector<double> &x) {
 
 // Funkcja eliminacji Gaussa bez wyboru elementu maksymalnego
 vector<double> podstawowy_gauss(vector<vector<double>> A, vector<double> b) {
-    int n = A.size();
+    int n = (int)A.size();
 
     for (int k = 0; k < n; ++k) {
         if (abs(A[k][k]) < exp(-9)) {
@@ -69,7 +69,7 @@ vector<double> podstawowy_gauss(vector<vector<double>> A, vector<double> b) {
 
 // Funkcja eliminacji Gaussa z częściowym wyborem elementu maksymalnego - kolumny
 vector<double> gauss_wybor_czesciowy(vector<vector<double>> A, vector<double> b) {
-    int n = A.size();
+    int n = (int)A.size();
 
     for (int k = 0; k < n; ++k) {
         int max_row = k;
@@ -107,7 +107,7 @@ vector<double> gauss_wybor_czesciowy(vector<vector<double>> A, vector<double> b)
 
 // Funkcja eliminacji Gaussa z pełnym wyborem elementu maksymalnego
 vector<double> gauss_wybor_pelny(vector<vector<double>> A, vector<double> b) {
-    int n = A.size();
+    int n = (int)A.size();
     vector<int> zamiany(n);
     for (int i = 0; i < n; ++i) zamiany[i] = i;
 
